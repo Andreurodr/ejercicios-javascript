@@ -6,29 +6,29 @@
 // Ejecuta varias veces la función father y haz finalmente un console.log de userAnwsers
 
 // guia de confirm y prompt
-const confirmValue = confirm('Soy un texto');
-const propmt = prompt('Soy un texto');
+// const confirmValue = confirm('');
+// const propmt = prompt('Soy un texto');
 
 const userAnwsers = [];
 
 function confirmExample(description){
-    return confirmValue
-    
-}
+        const confirmValue = confirm(description);
+        return confirmValue;
+ };
 
 function promptExample(description){
-    return propmt
+    const promptValue = prompt(description);
+    return promptValue;
 }
 
 function father(description, callback){
-    callback(description)
-    userAnswers.push(callback(description));
+    const respuesta = callback(description)
+    userAnwsers.push(respuesta);
 }
 
-father("Soy un texto", promptExample)
-father("Soy otro texto", confirmExample)
+father('Hola soy Andreu', confirmExample());
+father('Qué tal estás', promptExample());
+father('Aloha vecinito',  confirmExample());
+console.log(userAnwsers)
 
-console.log(userAnwsers);
-
-//no terminado
-
+//No logro entender el resultado que se pretende obtener. No sé si es justo lo que se pide.
