@@ -12,23 +12,33 @@
 const userAnwsers = [];
 
 function confirmExample(description){
-        const confirmValue = confirm(description);
-        return confirmValue;
+    return confirm(description);
  };
 
 function promptExample(description){
-    const promptValue = prompt(description);
-    return promptValue;
+    return prompt(description);
 }
 
 function father(description, callback){
-    const respuesta = callback(description)
+    return callback(description)
     userAnwsers.push(respuesta);
 }
 
-father('Hola soy Andreu', confirmExample());
-father('Qué tal estás', promptExample());
-father('Aloha vecinito',  confirmExample());
-console.log(userAnwsers)
+// father('¿Tienes coche?', confirmExample('¿Tienes coche?'));
+// father('¿Cuántos años tienes?', promptExample('¿Cuántos años tienes?'));
+// father('¿Vives de alquiler?',  confirmExample('¿Vives de alquiler?'));
+// console.log(userAnwsers)
 
-//No logro entender el resultado que se pretende obtener. No sé si es justo lo que se pide.
+arrPreguntas = [
+    "S/N ¿Tienes coche?",
+    "S/N ¿Cuántos años tienes",
+    "S/N ¿Cuánto mides?",
+];
+
+for (pregunta of arrPreguntas){
+    let respuesta = pregunta.startsWith("S/N")
+    ? father(pregunta, confirmExample)
+    : father(pregunta, promptExample);
+    userAnwsers.push(respuesta)
+    }
+console.log(userAnwsers)
